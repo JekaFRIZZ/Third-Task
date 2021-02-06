@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -23,7 +24,7 @@ public class QuadrilateralCreatorTest {
     private final static List<String> TEST_EMPTY = Collections.singletonList("");
 
     @Test
-    public void testArrayCreatorShouldCreateWhenCorrectArraysApplied() throws DataException {
+    public void testArrayCreatorShouldCreateWhenCorrectArraysApplied() throws DataException, IOException {
 
         DataReader reader = Mockito.mock(DataReader.class);
         when(reader.readDate(anyString())).thenReturn(TEST_DATE);
@@ -46,7 +47,7 @@ public class QuadrilateralCreatorTest {
     }
 
     @Test
-    public void testArrayCreatorShouldEmptyArrayWhenNothingCreate() throws DataException {
+    public void testArrayCreatorShouldEmptyArrayWhenNothingCreate() throws DataException, IOException  {
         DataReader reader = Mockito.mock(DataReader.class);
         when(reader.readDate(anyString())).thenReturn(TEST_EMPTY);
 

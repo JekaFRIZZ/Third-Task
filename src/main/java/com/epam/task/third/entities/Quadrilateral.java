@@ -4,13 +4,22 @@ import java.util.*;
 
 public class Quadrilateral {
 
-    List<Point> points;
+    private QuadrilateralParameters parameters;
+    private final List<Point> points;
+
+    public List<Point> getPoints() {
+        return points;
+    }
 
     public Quadrilateral(Point...points) {
         this.points = new ArrayList<>();
         for(Point point :points) {
             this.points.add(point);
         }
+    }
+
+    public int getId() {
+        return this.hashCode();
     }
 
     public Quadrilateral(List<Point> points) {
@@ -22,6 +31,14 @@ public class Quadrilateral {
 
     public void add(Point point) {
         points.add(point);
+    }
+
+    public QuadrilateralParameters getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(QuadrilateralParameters parameters) {
+        this.parameters = parameters;
     }
 
     @Override

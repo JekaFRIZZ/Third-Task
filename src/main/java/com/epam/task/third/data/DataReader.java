@@ -12,12 +12,16 @@ public class DataReader {
 
     private final Logger LOGGER = Logger.getLogger(DataReader.class);
 
-    public List<String> readDate(String filename) throws DataException {
+    public List<String> readDate(String filename) throws DataException, IOException {
 
         List<String> data = new ArrayList<>();
 
+        BufferedReader bufferedReader =null;
+        FileReader fileReader = null;
+
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
+            fileReader = new FileReader(filename);
+            bufferedReader = new BufferedReader(fileReader);
 
             String line = bufferedReader.readLine();
 
@@ -29,6 +33,13 @@ public class DataReader {
         } catch (IOException e) {
             LOGGER.error(e.getMessage(),e);
             throw new DataException(e.getMessage(), e);
+        }finally {
+            if(bufferedReader != null) {
+                bufferedReader.close();
+            }
+            if(fileReader != null) {
+                fileReader.close();
+            }
         }
 
         return data;

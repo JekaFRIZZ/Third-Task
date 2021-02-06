@@ -7,10 +7,9 @@ import com.epam.task.third.data.DataReader;
 import com.epam.task.third.entities.Point;
 import com.epam.task.third.entities.Quadrilateral;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class QuadrilateralCreator {
 
@@ -26,7 +25,7 @@ public class QuadrilateralCreator {
         this.parser = parser;
     }
 
-    public Quadrilateral process(String filename) throws DataException {
+    public Quadrilateral process(String filename) throws DataException, IOException {
         List<String> data = dataReader.readDate(filename);
         List<Point> points = new ArrayList<>();
 

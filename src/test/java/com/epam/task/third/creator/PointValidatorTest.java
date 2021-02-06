@@ -11,7 +11,7 @@ public class PointValidatorTest {
         PointValidator pointValidator = new PointValidator();
 
         //when
-        boolean actual = pointValidator.validate("1  2.5");
+        boolean actual = pointValidator.validate("1.5  2.5");
 
         //then
         Assert.assertTrue(actual);
